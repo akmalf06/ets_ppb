@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp/components/book_card.dart';
+import 'package:todoapp/db/book_db.dart';
 import 'package:todoapp/models/book.dart';
 
 class BookApp extends StatefulWidget {
@@ -8,11 +9,27 @@ class BookApp extends StatefulWidget {
 }
 
 class _BookAppState extends State<BookApp> {
-  List<Book> books = [
-    Book(id: 1, title: 'Tugas PPB', description: 'Tugas implementasi Stateful class, List, Custom Class, Card, Extracting Widget, dan Function as parameter', coverUrl: 'https://marketplace.canva.com/EAFY7T6tOE0/1/0/1003w/canva-oren-estetik-buku-cerita-pasangan-cinta-romantis-kartun-bagus-laGditSTCv0.jpg', createdAt: DateTime.now()),
-    Book(id: 2, title: 'Belanja', description: 'Yang perlu dibeli: roti, minyak, gula, dan kertas', coverUrl: 'https://marketplace.canva.com/EAFY7T6tOE0/1/0/1003w/canva-oren-estetik-buku-cerita-pasangan-cinta-romantis-kartun-bagus-laGditSTCv0.jpg', createdAt: DateTime.now()),
-    Book(id: 3, title: 'Olahraga', description: 'Otot yang perlu dilatih adalah otot dada', coverUrl: 'https://marketplace.canva.com/EAFY7T6tOE0/1/0/1003w/canva-oren-estetik-buku-cerita-pasangan-cinta-romantis-kartun-bagus-laGditSTCv0.jpg', createdAt: DateTime.now()),
-  ];
+  late List<Book> books;
+  bool isLoading = true;
+
+  Future refreshBooks() async {
+    setState(() => isLoading = true);
+    books = await BookDatabase.instance.getAll();
+    setState(() => isLoading = false);
+  }
+
+  @override
+  void initState(){
+    super.initState();
+    refreshBooks();
+  }
+
+  @override
+  void dispose() {
+    BookDatabase.instance.close();
+
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
