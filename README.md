@@ -1,16 +1,8 @@
-# todoapp
+Barhan Akmal Falahudin - 5025201008
 
-Todo App for PPB Class
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Home
+![image](https://github.com/akmalf06/ets_ppb/assets/67768493/5cd6eab5-88ac-4671-a3eb-a9785fe02a67)
+Index
+![image](https://github.com/akmalf06/ets_ppb/assets/67768493/47707818-3ad1-4c03-9411-f5c5bf215011)
+Create/Update
+![image](https://github.com/akmalf06/ets_ppb/assets/67768493/d6bce8db-66ab-49cd-83dd-7d1633a732e5)
